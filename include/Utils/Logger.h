@@ -2,6 +2,7 @@
 
 enum class LogLevel
 {
+
     Info,
     Warning,
     Error,
@@ -13,6 +14,7 @@ enum class LogLevel
 class Logger
 {
 public:
+
     static void Log(LogLevel level, const char* message);
 
     static void Info(const char* message);
