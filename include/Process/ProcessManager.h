@@ -22,7 +22,7 @@ private:
     static std::vector<Process> FindIf(Predicate predicate);
 
     template<typename Predicate>
-    static std::optional<Process> ProcessManager::FindFirstIf(Predicate predicate);
+    static std::optional<Process> FindFirstIf(Predicate predicate);
 };
 
 template<typename Predicate>
