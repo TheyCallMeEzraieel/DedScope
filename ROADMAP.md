@@ -9,8 +9,8 @@ v0.1
 
 v0.2
 ------
-⬜ FindByPID
-⬜ FindByName
+✅ FindByPID
+✅ FindByName
 ⬜ Module
 ⬜ ModuleManager
 
