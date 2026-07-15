@@ -9,6 +9,8 @@ add_library(DedScopeLib
     src/Utils/Console.cpp
     src/Process/Process.cpp
     src/Process/ProcessManager.cpp
+    src/Module/Module.cpp
+    src/Module/ModuleManager.cpp
 )
 
 target_include_directories(DedScopeLib PUBLIC include)
@@ -22,6 +24,7 @@ target_link_libraries(DedScope PRIVATE DedScopeLib)
 add_executable(DedScopeTests
     tests/MainTests.cpp
     tests/ProcessTests.cpp
+    tests/ModuleTests.cpp
 )
 
 target_link_libraries(DedScopeTests PRIVATE DedScopeLib)
