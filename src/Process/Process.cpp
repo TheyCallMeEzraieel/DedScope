@@ -29,6 +29,8 @@ Process& Process::operator=(Process&& other) noexcept
         handle_ = other.handle_;
 
         other.handle_ = nullptr;
+        other.pid_ = 0;
+        other.name_[0] = L'\0';
     }
 
     return *this;
