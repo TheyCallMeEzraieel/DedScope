@@ -1,4 +1,4 @@
-# DedScope (Maintenance Mode)
+# DedScope, a memory manipulation library (Maintenance Mode)
 
 A lightweight Windows `Memory Scanner` and `Process Manager` written in modern C++20.
 
