@@ -1,3 +1,5 @@
+#pragma once
+
 #include <windows.h>
 #include "Common/Constants.h"
 
@@ -14,7 +16,7 @@ public:
     Process(Process&& other) noexcept;
     Process& operator=(Process&& other) noexcept;
 
-    bool Open(); 
+    bool Open(DWORD desiredAccess = PROCESS_QUERY_INFORMATION | PROCESS_VM_READ | PROCESS_VM_WRITE | PROCESS_VM_OPERATION); 
     void Close(); 
 
     bool IsOpen() const; 

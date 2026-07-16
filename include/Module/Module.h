@@ -1,3 +1,5 @@
+#pragma once
+
 #include <Common/Constants.h>
 #include <windows.h>
 

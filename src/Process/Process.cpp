@@ -42,10 +42,10 @@ Process::~Process()
     Close();
 }
 
-bool Process::Open()
+bool Process::Open(DWORD desiredAccess)
 {
 
-    handle_ = OpenProcess(PROCESS_VM_OPERATION | PROCESS_VM_READ | PROCESS_VM_WRITE | PROCESS_QUERY_INFORMATION, FALSE, GetPID());
+    handle_ = OpenProcess(desiredAccess , FALSE, GetPID());
     if (IsOpen())
         return true;
     else
