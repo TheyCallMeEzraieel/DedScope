@@ -14,6 +14,14 @@ public:
     template<typename T>
     bool Write(uintptr_t address, const T& value) const;
 
+    [[nodiscard]]
+    bool Protect(uintptr_t address, size_t size, DWORD newProtect, DWORD& oldProtect) noexcept;
+
+    [[nodiscard]]
+    uintptr_t Allocate(size_t size, DWORD protect = PAGE_READWRITE, DWORD allocationType = MEM_RESERVE | MEM_COMMIT) noexcept;
+
+    bool Free(uintptr_t address) noexcept;
+
 private:
 
     Process& process_;
