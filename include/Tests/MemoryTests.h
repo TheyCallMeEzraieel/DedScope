@@ -1,3 +1,4 @@
 #pragma once
 
-void RunMemoryTests();
+void RunReadWriteTests();
+void RunPafTests();

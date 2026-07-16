@@ -7,7 +7,7 @@
 #include <windows.h>
 #include <cstdio>
 
-void RunMemoryTests()
+void RunReadWriteTests()
 {
 
     Console::Write("=== Memory Test ===\n");
@@ -63,4 +63,74 @@ void RunMemoryTests()
         
         process->Close();
     }
+}
+
+void RunPafTests()
+{
+
+    Console::Write("=== Memory Protect/Allocate/Free Test ===\n");
+
+    auto process = ProcessManager::FindByPID(GetCurrentProcessId());
+
+    if (!process)
+    {
+        Console::Write("Failed to find current process.\n");
+    }
+    else
+    {
+        if(!process->Open())
+        {
+            Console::Write("Failed to open current process.\n");
+        }
+        else
+        {
+            Memory memory(*process);
+
+            auto address = memory.Allocate(sizeof(int), PAGE_READWRITE);
+
+            if (!address)
+            {
+                Console::Write("Allocation failed.\n");
+            }
+            else
+            {
+                int value = 1337;
+
+                memory.Write(address, value);
+
+                DWORD oldProtect = 0;
+
+                if (memory.Protect(address, sizeof(int), PAGE_READONLY, oldProtect))
+                {
+                    Console::Write("Protect Success\n");
+                }
+                else
+                {
+                    Console::Write("Protect Failed\n");
+                }
+
+                int read = 0;
+
+                memory.Read(address, read);
+
+                char buffer[128];
+
+                snprintf(buffer, sizeof(buffer), "Read = %d\n", read);
+
+                Console::Write(buffer);
+
+                if (memory.Free(address))
+                {
+                    Console::Write("Free Success.\n");
+                }
+                else
+                {
+                    Console::Write("Free Failed.\n");
+                }
+            }
+        }
+        
+        process->Close();
+    }
+
 }

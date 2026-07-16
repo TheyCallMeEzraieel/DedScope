@@ -6,6 +6,7 @@ int main()
 {
     RunProcessTests();
     RunModuleTests();
-    RunMemoryTests();
+    RunReadWriteTests();
+    RunPafTests();
     return 0;
 }
