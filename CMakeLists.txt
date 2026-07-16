@@ -12,6 +12,8 @@ add_library(DedScopeLib
     src/Module/Module.cpp
     src/Module/ModuleManager.cpp
     src/Memory/Memory.cpp
+    src/Scanner/Pattern.cpp
+    src/Scanner/PatternParser.cpp
 )
 
 target_include_directories(DedScopeLib PUBLIC include)
@@ -27,6 +29,7 @@ add_executable(DedScopeTests
     tests/ProcessTests.cpp
     tests/ModuleTests.cpp
     tests/MemoryTests.cpp
+    tests/PatternTests.cpp
 )
 
 target_link_libraries(DedScopeTests PRIVATE DedScopeLib)
