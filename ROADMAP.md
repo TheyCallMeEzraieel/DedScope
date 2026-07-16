@@ -16,9 +16,9 @@ v0.2
 
 v0.3
 ------
-⬜ Memory
-⬜ ReadProcessMemory
-⬜ WriteProcessMemory
+✅ Memory
+✅ ReadProcessMemory
+✅ WriteProcessMemory
 
 v0.4
 ------
