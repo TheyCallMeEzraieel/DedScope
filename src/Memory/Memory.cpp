@@ -3,6 +3,26 @@
 
 Memory::Memory(Process& process) : process_(process){};
 
+bool Memory::ReadBuffer(uintptr_t address, void *buffer, size_t size) const noexcept
+{
+    SIZE_T bytesRead;
+    BOOL result = ReadProcessMemory(process_.GetHandle(), reinterpret_cast<LPCVOID>(address), buffer, size, &bytesRead);
+    return result && bytesRead == size;
+}
+
+std::vector<uint8_t> Memory::ReadBuffer(uintptr_t address, size_t size) const
+{
+    std::vector<uint8_t> buffer(size);
+
+    const bool result = ReadBuffer(address, buffer.data(), size);
+
+    if (result)
+        return buffer;
+    else
+        return {};
+
+}
+
 bool Memory::Protect(uintptr_t address, size_t size, DWORD newProtect, DWORD &oldProtect) noexcept
 {
     return VirtualProtectEx(process_.GetHandle(), reinterpret_cast<LPVOID>(address), size, newProtect, &oldProtect);

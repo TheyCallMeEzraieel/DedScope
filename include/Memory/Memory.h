@@ -1,12 +1,19 @@
 #pragma once
 
 #include "Process/Process.h"
+#include <cstdint>
+#include <vector>
 
 class Memory
 {
 public:
 
     explicit Memory(Process& process);
+
+    [[nodiscard]]
+    bool ReadBuffer(uintptr_t address, void* buffer, size_t size) const noexcept;
+    [[nodiscard]]
+    std::vector<uint8_t> ReadBuffer(uintptr_t address, size_t size) const;
 
     template<typename T>
     bool Read(uintptr_t address, T& value) const;
