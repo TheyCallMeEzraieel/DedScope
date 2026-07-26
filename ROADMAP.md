@@ -22,7 +22,7 @@ v0.3
 
 v0.4
 ------
-⬜ Pattern Scanner
+✅ Pattern Scanner
 
 v0.5
 ------

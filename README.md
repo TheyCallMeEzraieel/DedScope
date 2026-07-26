@@ -74,7 +74,7 @@ memory.Read(address, value);
 - [x] Module manager
 - [x] Memory API
 - [x] Pattern parser
-- [ ] Pattern scanner
+- [x] Pattern scanner
 - [ ] Pointer utilities
 - [ ] Memory region enumeration
 - [ ] PE parser
