@@ -33,15 +33,4 @@ void RunProcessTests()
         processes.size());
 
     Console::Write(buffer);
-    Console::Write("\nFind a Process: ");
-    DWORD mypid;
-    scanf("%d", &mypid);
-    if (ProcessManager::FindByPID(mypid))
-    {
-        Console::Write("\n Found it out");
-    }
-    else
-    {
-        Console::Write("\n Couldn't found it out");
-    }
 }
